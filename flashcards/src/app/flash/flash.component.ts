@@ -15,8 +15,35 @@ export class FlashComponent implements OnInit {
   };
 
   @Output() onToggleCard = new EventEmitter();
+  @Output() onDelete = new EventEmitter();
+  @Output() onEdit = new EventEmitter();
+  @Output() onRememberedChange = new EventEmitter();
+
+
   toggleCard() {
     this.onToggleCard.emit(this.flash.id)
+  }
+
+  markCorrect() {
+    this.onRememberedChange.emit({
+      id: this.flash.id,
+      flag: 'correct',
+    })
+  }
+
+  markIncorrect() {
+    this.onRememberedChange.emit({
+      id: this.flash.id,
+      flag: 'incorrect',
+    })
+  }
+
+  editFlash() {
+    this.onEdit.emit(this.flash.id)
+  }
+
+  deleteFlash() {
+    this.onDelete.emit(this.flash.id)
   }
 
   constructor() { }

@@ -34,6 +34,27 @@ export class AppComponent {
     return flash.id;
   }
 
+  handleToggleCard(id: number) {
+    const flash = this.flashs.find(flash => flash.id === id);
+    flash!.show = !flash!.show;
+  }
+
+  editing = false;
+
+  editingId: number;
+
+  handleDelete() {
+
+  }
+
+  handleEdit() {
+
+  }
+
+  handleRememberedChange() {
+    
+  }
+
 
 
 }
