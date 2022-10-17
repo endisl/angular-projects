@@ -43,16 +43,19 @@ export class AppComponent {
 
   editingId: number;
 
-  handleDelete() {
-
+  handleDelete(id: number) {
+    const flashId = this.flashs.indexOf(flash => flash.id === id);
+    this.flashs.splice(flashId, 1)
   }
 
-  handleEdit() {
-
+  handleEdit(id: number) {
+    this.editing = true;
+    this.editingId = id;
   }
 
-  handleRememberedChange() {
-    
+  handleRememberedChange({id, flag}) {
+    const flash = this.flashs.find(flash => flash.id === id);
+    flash!.remembered = flag;
   }
 
 
