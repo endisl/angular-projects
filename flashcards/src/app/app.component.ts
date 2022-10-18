@@ -44,7 +44,7 @@ export class AppComponent {
   editingId: number;
 
   handleDelete(id: number) {
-    const flashId = this.flashs.indexOf(flash => flash.id === id);
+    const flashId = this.flashs.findIndex(flash => flash.id === id);
     this.flashs.splice(flashId, 1)
   }
 
