@@ -50,9 +50,12 @@ export class AppComponent {
     this.flashs.splice(flashId, 1)
   }
 
-  handleEdit(id: number) {
+  handleEdit(id: number): void {
     this.editing = true;
     this.editingId = id;
+    const flash = this.flashs.find(flash => flash.id === id);
+    this.flash.question = flash?.question;
+    this.flash.answer = flash?.answer;
   }
 
   handleRememberedChange({id, flag}) {
@@ -71,6 +74,18 @@ export class AppComponent {
       answer: '',
     };
     this.flashForm.reset();
+  }
+
+  handleUpdate() {
+    const flash = this.flashs.find(flash => flash.id === this.editingId);
+    flash.question = this.flash?.question;
+    flash.answer = this.flash?.answer;
+  }
+
+  handleCancel() {
+    this.editing = false;
+    this.editingId = undefined;
+    this.handleClear();
   }
 }
 

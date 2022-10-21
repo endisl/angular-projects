@@ -45,11 +45,17 @@
     class="button is-primary"
     type="submit"
     click="handleUpdate()"
+    [disabled]="flashForm.invalid"
   >
     Update
   </button>
   <ng-template #submitBtn>
-    <button class="button is-primary" type="submit" click="handleSubmit()">
+    <button
+      class="button is-primary"
+      type="submit"
+      click="handleSubmit()"
+      [disabled]="flashForm.invalid"
+    >
       Submit
     </button>
   </ng-template>
